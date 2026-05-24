@@ -33,23 +33,20 @@ export async function saveMemory(content: string, tags: string[]): Promise<strin
   await ensureIndex();
   const id = uuidv4();
   const vector = await embed(content);
-
   await index.insertItem({ id, vector, metadata: { content } });
-
   await db.insert(memories).values({
     id,
     content,
     tags: JSON.stringify(tags),
     createdAt: new Date(),
   }).run();
-
   return id;
 }
 
 export async function searchMemories(query: string, topK = 5): Promise<string[]> {
   await ensureIndex();
   const vector = await embed(query);
-  const results = await index.queryItems(vector, topK);
+  const results = await index.queryItems(vector, query, topK);
   return results.map(r => r.item.metadata.content as string);
 }
 

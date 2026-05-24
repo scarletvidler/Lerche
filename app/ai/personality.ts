@@ -11,6 +11,7 @@ export async function getPersonality(): Promise<typeof personality.$inferSelect[
 export async function updatePersonality(deltas: Partial<Traits>): Promise<void> {
   const now = new Date();
   for (const [trait, delta] of Object.entries(deltas)) {
+    if (delta === undefined) continue;
     const [row] = await db.select().from(personality).where(eq(personality.trait, trait)).all();
     if (!row) continue;
     const next = Math.max(0, Math.min(1, row.value + delta));

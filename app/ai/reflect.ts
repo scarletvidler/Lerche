@@ -5,8 +5,9 @@ import { messages } from '../db/schema.js';
 import { saveMemory } from './memory.js';
 import { updatePersonality } from './personality.js';
 
-const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
-const MODEL = process.env.MODEL ?? 'claude-sonnet-4-6';
+let _client: Anthropic | undefined;
+const getClient = () => (_client ??= new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY }));
+const getModel = () => process.env.MODEL ?? 'claude-sonnet-4-6';
 
 interface ReflectionResult {
   memories: Array<{ content: string; tags: string[] }>;
@@ -27,8 +28,8 @@ export async function reflect(conversationId: string): Promise<{
     .map(m => `${m.role === 'user' ? 'User' : 'Companion'}: ${m.content}`)
     .join('\n');
 
-  const response = await client.messages.create({
-    model: MODEL,
+  const response = await getClient().messages.create({
+    model: getModel(),
     max_tokens: 1024,
     system: `You are a reflection engine for a personal AI companion. Analyse a conversation transcript and return a JSON object with two keys:
 

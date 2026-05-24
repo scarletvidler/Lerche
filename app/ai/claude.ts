@@ -7,8 +7,9 @@ import { messages } from '../db/schema.js';
 import { searchMemories } from './memory.js';
 import { getPersonality, toSystemPrompt } from './personality.js';
 
-const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
-const MODEL = process.env.MODEL ?? 'claude-sonnet-4-6';
+let _client: Anthropic | undefined;
+const getClient = () => (_client ??= new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY }));
+const getModel = () => process.env.MODEL ?? 'claude-sonnet-4-6';
 
 export async function chat(
   userMessage: string,
@@ -37,8 +38,8 @@ export async function chat(
     .all())
     .map((m): MessageParam => ({ role: m.role, content: m.content }));
 
-  const response = await client.messages.create({
-    model: MODEL,
+  const response = await getClient().messages.create({
+    model: getModel(),
     max_tokens: 1024,
     system: [{ type: 'text', text: basePrompt + memoryBlock, cache_control: { type: 'ephemeral' } }],
     messages: history,

@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { createClient } from '@libsql/client';
 import { drizzle } from 'drizzle-orm/libsql';
 import { mkdirSync } from 'fs';
@@ -16,7 +17,7 @@ const DEFAULT_TRAITS = [
   { trait: 'empathy',     value: 0.8, description: 'How emotionally attuned and validating' },
 ];
 
-export async function setupDb(): Promise<void> {
+async function setupDb(): Promise<void> {
   await client.execute(`
     CREATE TABLE IF NOT EXISTS messages (
       id TEXT PRIMARY KEY,
@@ -51,3 +52,5 @@ export async function setupDb(): Promise<void> {
     });
   }
 }
+
+export const dbReady = setupDb();

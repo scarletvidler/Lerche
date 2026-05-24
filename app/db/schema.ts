@@ -11,7 +11,7 @@ export const messages = sqliteTable('messages', {
 export const memories = sqliteTable('memories', {
   id: text('id').primaryKey(),
   content: text('content').notNull(),
-  tags: text('tags').notNull(), // JSON-serialised string[]
+  tags: text('tags').notNull(),
   createdAt: integer('created_at', { mode: 'timestamp' }).notNull(),
 });
 
