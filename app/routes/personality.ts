@@ -1,5 +1,5 @@
-import { getPersonality } from '../ai/personality.js';
-import { dbReady } from '../db/index.js';
+import { getPersonality } from "../ai/personality.js";
+import { dbReady } from "../db/index.js";
 
 export async function loader() {
   await dbReady;

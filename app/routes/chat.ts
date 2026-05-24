@@ -20,3 +20,7 @@ export async function action({ request }: ActionFunctionArgs) {
   const result = await chat(message, conversationId);
   return Response.json(result);
 }
+
+export function loader() {
+  return Response.json({ message: 'Chat endpoint' });
+}

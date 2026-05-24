@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #111;
+    @apply text-white;
+  }
+}
+
+h1 {
+  @apply text-4xl font-bold mb-4;
+}
+
+h2 {
+  @apply text-2xl font-semibold mb-3;
+}
+
+h3 {
+  @apply text-xl font-medium mb-2;
+}
+
+p {
+  @apply text-base;
+}
