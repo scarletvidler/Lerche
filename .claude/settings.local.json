@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-Content \"c:\\\\Users\\\\Scarl\\\\Documents\\\\Siren\\\\Personal Projects\\\\Lerche\\\\memory_store.json\")",
+      "Bash(Get-Content \"c:\\\\Users\\\\Scarl\\\\Documents\\\\Siren\\\\Personal Projects\\\\Lerche\\\\personality.json\")"
+    ]
+  }
+}
