@@ -9,7 +9,10 @@ const EndBody = z.object({
 
 export async function action({ request }: ActionFunctionArgs) {
   await dbReady;
-  const body = await request.json();
+  const data = await request.formData();
+  const body = {
+    conversationId: data.get("conversationId"),
+  };
   const parsed = EndBody.safeParse(body);
   if (!parsed.success) {
     return Response.json({ error: parsed.error.flatten() }, { status: 400 });

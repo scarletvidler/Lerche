@@ -1,5 +1,6 @@
 import { Outlet, Scripts } from 'react-router';
 import './style/index.css';
+import { Header } from './components/header';
 
 export default function Root() {
   return (
@@ -10,7 +11,9 @@ export default function Root() {
         <title>Lerche</title>
       </head>
       <body>
+        <div className="bg-gradient-to-br from-black via-purple-900 to-black min-h-screen text-white center">
         <Outlet />
+        </div>
         <Scripts />
       </body>
     </html>

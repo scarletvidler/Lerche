@@ -24,12 +24,18 @@ type Pages = {
       "id": string;
     };
   };
+  "/conversation/end": {
+    params: {};
+  };
+  "/chat": {
+    params: {};
+  };
 };
 
 type RouteFiles = {
   "root.tsx": {
     id: "root";
-    page: "/" | "/memories/:id?" | "/memories/delete/:id";
+    page: "/" | "/memories/:id?" | "/memories/delete/:id" | "/conversation/end" | "/chat";
   };
   "routes/memories.tsx": {
     id: "routes/memories";
@@ -39,10 +45,20 @@ type RouteFiles = {
     id: "routes/memories.delete";
     page: "/memories/delete/:id";
   };
+  "routes/conversation.end.ts": {
+    id: "routes/conversation.end";
+    page: "/conversation/end";
+  };
+  "routes/chat.tsx": {
+    id: "routes/chat";
+    page: "/chat";
+  };
 };
 
 type RouteModules = {
   "root": typeof import("./app/root.tsx");
   "routes/memories": typeof import("./app/routes/memories.tsx");
   "routes/memories.delete": typeof import("./app/routes/memories.delete.tsx");
+  "routes/conversation.end": typeof import("./app/routes/conversation.end.ts");
+  "routes/chat": typeof import("./app/routes/chat.tsx");
 };

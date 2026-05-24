@@ -21,6 +21,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router": "^7.0.0",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4.3.0",
     "uuid": "^11.0.5",
     "vectra": "^0.14.0",
