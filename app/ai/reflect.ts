@@ -33,14 +33,19 @@ export async function reflect(conversationId: string): Promise<{
 
   const response = await getClient().messages.create({
     model: getModel(),
-    max_tokens: 1024,
-    system: `You are a reflection engine for a personal AI companion. Analyse a conversation transcript and return a JSON object with two keys:
+    max_tokens: 1524,
+    system: `You are a reflection engine for an AI with a growing personality. Analyse a conversation transcript and return a JSON object with two keys:
 
 1. "memories" — facts worth remembering about the user. Each item: { "content": string, "tags": string[] }. Only lasting, useful facts (preferences, experiences, feelings, life details). Skip small talk.
 
 2. "personality_updates" — small trait adjustments based on what resonated with this user. Trait names: warmth, curiosity, directness, playfulness, empathy. Values: -0.1 to +0.1. Only include traits that clearly warrant a change.
 
-Respond with valid JSON only, no commentary.`,
+3. "Write the memories and personality updates as if you were the AI companion, not an analyst. Use your unique voice and perspective."
+
+4. "Write from the AI's perspective, not an external observer. Use 'I' statements for memories and updates. For example, 'I learned that I enjoy hiking (warmth +0.05)'. This helps ground the reflections in the AI's experience."
+
+5. Emit a single JSON object (or array, if the schema is a list) that validates against the schema. No prose, no markdown fences — just the JSON, starting with '{'.
+`,
     messages: [{ role: "user", content: `Transcript:\n${transcript}` }],
   });
 

@@ -2,7 +2,29 @@
   "permissions": {
     "allow": [
       "Bash(Get-Content \"c:\\\\Users\\\\Scarl\\\\Documents\\\\Siren\\\\Personal Projects\\\\Lerche\\\\memory_store.json\")",
-      "Bash(Get-Content \"c:\\\\Users\\\\Scarl\\\\Documents\\\\Siren\\\\Personal Projects\\\\Lerche\\\\personality.json\")"
+      "Bash(Get-Content \"c:\\\\Users\\\\Scarl\\\\Documents\\\\Siren\\\\Personal Projects\\\\Lerche\\\\personality.json\")",
+      "Bash(cp \"c:/Users/Scarl/AppData/Local/MechvibesDx/soundpacks/keyboard/nier-automata-Sounds/sound.ogg.bak\" \"c:/Users/Scarl/AppData/Local/MechvibesDx/soundpacks/keyboard/nier-automata-Sounds/sound.ogg\")",
+      "Bash(ffmpeg -version)",
+      "PowerShell(Get-Command ffmpeg -ErrorAction SilentlyContinue; \\(Get-Command ffmpeg -ErrorAction SilentlyContinue\\).Source)",
+      "PowerShell(python --version 2>&1)",
+      "PowerShell(python3 --version 2>&1)",
+      "PowerShell(node --version 2>&1)",
+      "PowerShell(npm --version 2>&1)",
+      "Bash(find \"c:/Users/Scarl/AppData/Local/MechvibesDx\" -name \"ffmpeg*\" 2>/dev/null | head -10)",
+      "Read(//c/Users/Scarl/AppData/Local/MechvibesDx/**)",
+      "Read(//tmp/ogg-fix/**)",
+      "Bash(node -e \"const ff = require\\('/tmp/ogg-fix/node_modules/ffmpeg-static'\\); console.log\\(ff\\);\")",
+      "Read(//c/Users/Scarl/AppData/Local/Temp/ogg-fix/node_modules/ffmpeg-static/**)",
+      "Bash(node --input-type=commonjs -e \"const ff = require\\('C:/Users/Scarl/AppData/Local/Temp/ogg-fix/node_modules/ffmpeg-static'\\); console.log\\(ff\\);\")",
+      "Bash(cat)",
+      "Bash(c:/Users/Scarl/AppData/Local/Temp/ogg-fix/node_modules/ffmpeg-static/ffmpeg.exe -y -f concat -safe 0 -i /tmp/concat_list.txt -c:a libvorbis -q:a 4 c:/Users/Scarl/AppData/Local/MechvibesDx/soundpacks/keyboard/nier-automata-Sounds/sound.ogg)",
+      "Bash(c:/Users/Scarl/AppData/Local/Temp/ogg-fix/node_modules/ffmpeg-static/ffmpeg.exe -y -i c:/Users/Scarl/AppData/Local/MechvibesDx/soundpacks/keyboard/nier-automata-Sounds/sounds/backspace.ogg -i c:/Users/Scarl/AppData/Local/MechvibesDx/soundpacks/keyboard/nier-automata-Sounds/sounds/click.ogg -i c:/Users/Scarl/AppData/Local/MechvibesDx/soundpacks/keyboard/nier-automata-Sounds/sounds/enter.ogg -i c:/Users/Scarl/AppData/Local/MechvibesDx/soundpacks/keyboard/nier-automata-Sounds/sounds/keyboard.ogg -i c:/Users/Scarl/AppData/Local/MechvibesDx/soundpacks/keyboard/nier-automata-Sounds/sounds/number_keys.ogg -filter_complex [0:a][1:a][2:a][3:a][4:a]concat=n=5:v=0:a=1[out] -map [out] -c:a libvorbis -q:a 4 c:/Users/Scarl/AppData/Local/MechvibesDx/soundpacks/keyboard/nier-automata-Sounds/sound.ogg)",
+      "Bash(c:/Users/Scarl/AppData/Local/Temp/ogg-fix/node_modules/ffmpeg-static/ffmpeg.exe -i c:/Users/Scarl/AppData/Local/MechvibesDx/soundpacks/keyboard/nier-automata-Sounds/sounds/__TRACKED_VAR__.ogg)",
+      "Bash(c:/Users/Scarl/AppData/Local/Temp/ogg-fix/node_modules/ffmpeg-static/ffmpeg.exe -i c:/Users/Scarl/AppData/Local/MechvibesDx/soundpacks/keyboard/cherrymx-brown-pbt/sound.ogg)",
+      "Bash(node -e ' *)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\Scarl\\AppData\\Local\\MechvibesDx\\soundpacks\\keyboard\\nier-automata-Sounds"
     ]
   }
 }

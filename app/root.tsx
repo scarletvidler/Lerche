@@ -1,6 +1,5 @@
-import { Outlet, Scripts } from 'react-router';
-import './style/index.css';
-import { Header } from './components/header';
+import { Outlet, Scripts } from "react-router";
+import "./style/index.css";
 
 export default function Root() {
   return (
@@ -12,7 +11,7 @@ export default function Root() {
       </head>
       <body>
         <div className="bg-gradient-to-br from-black via-purple-900 to-black min-h-screen text-white center">
-        <Outlet />
+          <Outlet />
         </div>
         <Scripts />
       </body>

@@ -17,10 +17,15 @@ export default function Memories() {
   return (
     <div>
       <Header content="Memories" />
-      <Section className="max-w-2xl mx-auto">
+      <Section className="max-w-3xl mx-auto">
         <ul>
           {memories.map((memory) => (
-            <li key={memory.id}>{memory.content}</li>
+            <li
+              className="my-4 py-5 space-x-1 border-y border-gray-200"
+              key={memory.id}
+            >
+              {memory.content}
+            </li>
           ))}
         </ul>
       </Section>
